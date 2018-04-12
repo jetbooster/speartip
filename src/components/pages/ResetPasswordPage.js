@@ -31,7 +31,7 @@ class ResetPasswordPage extends React.Component {
       <div>
         {loading && <Message>Loading</Message>}
         {!loading &&
-        success && <ResetPasswordForm submit={this.submit} token={token} />}
+          success && <ResetPasswordForm submit={this.submit} token={token} />}
         {!loading && !success && <Message>Invalid Token</Message>}
       </div>
     );
