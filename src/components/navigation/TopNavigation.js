@@ -1,46 +1,53 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Menu, Dropdown, Image } from "semantic-ui-react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import gravatarUrl from "gravatar-url";
-import * as actions from "../../actions/auth";
+import { AppBar, Toolbar, Button, IconButton, Typography, withStyles } from "@material-ui/core";
+import { MediaQuery } from "react-responsive";
+import MenuIcon from '@material-ui/icons/Menu';
+import PropTypes from 'prop-types'
+import React from 'react';
 
-const TopNavigation = ({ user, logout, hasBooks }) => (
-  <Menu secondary pointing>
-    <Menu.Item as={Link} to="/dashboard">
-      Dashboard
-    </Menu.Item>
-    {hasBooks && (
-      <Menu.Item as={Link} to="/books/new">
-        Add New Book
-      </Menu.Item>
-    )}
+import SpearTip from '../../resources/speartip_bold.svg'
 
-    <Menu.Menu position="right">
-      <Dropdown trigger={<Image avatar src={gravatarUrl(user.email)} />}>
-        <Dropdown.Menu>
-          <Dropdown.Item onClick={() => logout()}>Logout</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-    </Menu.Menu>
-  </Menu>
+const style = {
+  navBarBurger: {
+    marginLeft: -12,
+    marginRight: 20,
+  },
+
+  navBarRoot: {
+    flexGrow: 1,
+    zIndex: 10,
+    position:'relative',
+  },
+
+  navBarTitle: {
+    flex:1,
+  },
+  image:{
+    top: 0,
+    height: 50,
+    margin: '5px 5px',
+    '@media (min-width: 800px)':{
+      margin: 10
+    },
+    '@media (min-width: 1200px)':{
+      margin: '10px 10px'
+    },
+  },
+}
+
+const TopNavigation = ({classes}) => (
+  <AppBar position="static" className={classes.navBarRoot}>
+    <Toolbar disableGutters>
+      <img src={SpearTip} alt="Speartip solutions logo" className={classes.image}/>
+      <Typography variant="display1" color="inherit" className={classes.navBarTitle}>
+        Speartip Solutions
+      </Typography>
+      <Button color="inherit" className="nav-bar-login">Login</Button>
+    </Toolbar>
+  </AppBar>
 );
 
 TopNavigation.propTypes = {
-  user: PropTypes.shape({
-    email: PropTypes.string.isRequired
-  }).isRequired,
-  hasBooks: PropTypes.bool.isRequired,
-  logout: PropTypes.func.isRequired
+  classes: PropTypes.object.isRequired, 
 };
 
-function mapStateToProps(state) {
-  return {
-    user: state.user
-  };
-}
-
-export default connect(mapStateToProps, { logout: actions.logout })(
-  TopNavigation
-);
+export default withStyles(style)(TopNavigation)

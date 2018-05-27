@@ -1,4 +1,4 @@
-import { USER_LOGGED_IN, USER_LOGGED_OUT } from "../types";
+import { USER_LOGGED_IN, USER_LOGGED_OUT } from "../actionTypes";
 import api from "../api";
 import setAuthorizationHeader from "../utils/setAuthorizationHeader";
 
@@ -30,8 +30,7 @@ export const confirm = token => dispatch =>
     dispatch(userLoggedIn(user));
   });
 
-export const resetPasswordRequest = ({ email }) => () =>
-  api.user.resetPasswordRequest(email);
+export const resetPasswordRequest = ({ email }) => () => api.user.resetPasswordRequest(email);
 
 export const validateToken = token => () => api.user.validateToken(token);
 
