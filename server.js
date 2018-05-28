@@ -5,7 +5,6 @@ const proxy = require("express-http-proxy");
 const config = require("./server.config.js");
 
 const app = express();
-const api = express();
 
 app.use("/", express.static(path.join(__dirname, "dist")));
 app.use("/api", proxy(`${config.api.hostname}:${config.api.port}`));
@@ -50,7 +49,12 @@ require('greenlock-express').create({
   // ex: /home/foouser/acme/etc
 , configDir: path.join(os.homedir(), 'acme', 'etc')
 
-, app
+// , app
+
+, app: express().use('/', (req, res) => {
+  res.setHeader('Content-Type', 'text/html; charset=utf-8')
+  res.end('Hello, World!\n\n💚 🔒.js');
+})
 
   // Join the community to get notified of important updates and help me make greenlock better
 , communityMember: false
@@ -62,8 +66,3 @@ require('greenlock-express').create({
 
 }).listen(80, 443);
        
-// eslint-disable-next-line no-unused-vars
-api.post("/*", (req, res, next) => {
-  res.data = { "body-key": "body-value" };
-  res.sendStatus(200);
-});
