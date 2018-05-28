@@ -59,7 +59,7 @@ const HomePage = ({ classes }) => (
       </Typography>
       <span className={classes.spacerBottom}/>
       <div className={classes.bodyContainer}>
-        <Paper elevation="10" className={classes.mainBody}>
+        <Paper elevation={10} className={classes.mainBody}>
           <Typography variant="title">
             Skill Summary
           </Typography>
