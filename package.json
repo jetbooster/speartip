@@ -1,6 +1,6 @@
 {
-  "name": "bookworm-react",
-  "version": "0.1.0",
+  "name": "speartip-solutions",
+  "version": "2.0.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^1.1.0",
@@ -37,11 +37,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "NODE_ENV=production npm run clean && webpack",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint src",
     "dev": "./node_modules/.bin/webpack-dev-server --host 0.0.0.0",
+    "serve": "sudo node server.js",
     "clean": "rm -rf ./dist"
   },
   "devDependencies": {
