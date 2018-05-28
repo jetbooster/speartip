@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
-const os = require('os')
+const https = require('https')
+const fs = require('fs')
 const proxy = require("express-http-proxy");
 const config = require("./server.config.js");
 
@@ -8,6 +9,11 @@ const app = express();
 
 app.use("/", express.static(path.join(__dirname, "dist")));
 app.use("/api", proxy(`${config.api.hostname}:${config.api.port}`));
+
+const options = {
+  cert: fs.readFileSync('/etc/letsencrypt/live/speartipsolutions.co.uk/fullchain.pem'),
+  key: fs.readFileSync('/etc/letsencrypt/live/speartipsolutions.co.uk/privkey.pem'),
+}
 
 // require('greenlock-express').create({
 
@@ -51,4 +57,4 @@ app.use("/api", proxy(`${config.api.hostname}:${config.api.port}`));
 // }).listen(80, 443);
 
 app.listen(80);
-       
+https.createServer(options,app).listen(8443)
