@@ -1,29 +1,29 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter, Route } from "react-router-dom";
-import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import thunk from "redux-thunk";
-import decode from "jwt-decode";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { CssBaseline } from "@material-ui/core";
-import App from "./App";
-import registerServiceWorker from "./registerServiceWorker";
-import rootReducer from "./rootReducer";
-import { userLoggedIn } from "./actions/auth";
-import setAuthorizationHeader from "./utils/setAuthorizationHeader";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import thunk from 'redux-thunk';
+import decode from 'jwt-decode';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { CssBaseline } from '@material-ui/core';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+import rootReducer from './rootReducer';
+import { userLoggedIn } from './actions/auth';
+import setAuthorizationHeader from './utils/setAuthorizationHeader';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#ddd"
+      main: '#ddd',
     },
     secondary: {
-      main: "#4dd0e1"
-    }
-  }
+      main: '#4dd0e1',
+    },
+  },
 });
 
 if (localStorage.bookwormJWT) {
@@ -31,7 +31,7 @@ if (localStorage.bookwormJWT) {
   const user = {
     token: localStorage.bookwormJWT,
     email: payload.email,
-    confirmed: payload.confirmed
+    confirmed: payload.confirmed,
   };
   setAuthorizationHeader(localStorage.bookwormJWT);
   store.dispatch(userLoggedIn(user));
@@ -39,7 +39,7 @@ if (localStorage.bookwormJWT) {
 
 ReactDOM.render(
   <div>
-    <CssBaseline/>
+    <CssBaseline />
     <MuiThemeProvider theme={theme}>
       <BrowserRouter>
         <Provider store={store}>
@@ -48,6 +48,6 @@ ReactDOM.render(
       </BrowserRouter>
     </MuiThemeProvider>
   </div>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
 registerServiceWorker();

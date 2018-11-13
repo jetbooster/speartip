@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default () => (
-    <div>
+  <div>
         You are on the admin page!
-    </div>
+  </div>
 );

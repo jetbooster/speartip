@@ -1,13 +1,13 @@
-import React from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { Route } from "react-router-dom";
-import HomePage from "./components/pages/HomePage";
-import AdminPage from "./components/pages/AdminPage";
-import AdminRoute from "./components/routes/AdminRoute";
-import OtherPage from "./components/pages/OtherPage";
-import GuestRoute from "./components/routes/GuestRoute";
-import TopNavigation from "./components/navigation/TopNavigation";
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { Route } from 'react-router-dom';
+import HomePage from './components/pages/HomePage';
+import AdminPage from './components/pages/AdminPage';
+import AdminRoute from './components/routes/AdminRoute';
+import OtherPage from './components/pages/OtherPage';
+import GuestRoute from './components/routes/GuestRoute';
+import TopNavigation from './components/navigation/TopNavigation';
 
 const App = ({ location }) => (
   <div className="ui container">
@@ -20,13 +20,13 @@ const App = ({ location }) => (
 
 App.propTypes = {
   location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired
+    pathname: PropTypes.string.isRequired,
   }).isRequired,
 };
 
 function mapStateToProps(state) {
   return {
-    isAuthenticated: !!state.user.email
+    isAuthenticated: !!state.user.email,
   };
 }
 

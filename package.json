@@ -33,22 +33,23 @@
     "reselect": "^3.0.1",
     "validator": "^8.1.0",
     "webpack": "^4.9.1",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.10"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "npm run clean && npm run webpack_prod && npm run migrate",
-    "webpack_dev":"webpack",
-    "webpack_prod":"NODE_ENV=production webpack",
+    "webpack_dev": "webpack",
+    "webpack_prod": "NODE_ENV=production webpack",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint src",
     "dev": "./node_modules/.bin/webpack-dev-server --host 0.0.0.0",
     "serve": "sudo node server.js",
     "clean": "rm -rf ./dist",
-    "migrate":"sudo cp ./src/resources/manifest.json ./dist/assets/manifest.json && sudo cp ./src/resources/speartip.ico ./dist/assets/media/speartip.ico"
+    "migrate": "sudo cp ./src/resources/manifest.json ./dist/assets/manifest.json && sudo cp ./src/resources/speartip.ico ./dist/assets/media/speartip.ico"
   },
   "devDependencies": {
+    "compression-webpack-plugin": "^2.0.0",
     "eslint": "^4.5.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-prettier": "^2.3.0",
