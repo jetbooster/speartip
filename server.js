@@ -5,10 +5,11 @@ const https = require('https');
 const fs = require('fs');
 const proxy = require('express-http-proxy');
 const config = require('./server.config.js');
+const expressStaticGzip = require('express-static-gzip');
 
 const app = express();
 
-app.use('/', express.static(path.join(__dirname, 'dist')));
+app.use('/', expressStaticGzip(path.join(__dirname, 'dist')));
 app.use('/api', proxy(`${config.api.hostname}:${config.api.port}`));
 
 const options = {
