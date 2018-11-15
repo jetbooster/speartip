@@ -3,6 +3,7 @@ const webpack = require("webpack"); // eslint-disable-line
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const config = {
   // absolute path for project root
@@ -73,6 +74,7 @@ const config = {
       threshold: 10240,
       minRatio: 0.8,
     }),
+    new Dotenv(),
   ],
 
   devServer: {

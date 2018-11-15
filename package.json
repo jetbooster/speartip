@@ -52,6 +52,7 @@
   },
   "devDependencies": {
     "compression-webpack-plugin": "^2.0.0",
+    "dotenv-webpack": "^1.5.7",
     "eslint": "^4.5.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-prettier": "^2.3.0",
