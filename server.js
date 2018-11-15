@@ -19,5 +19,5 @@ const options = {
 
 express().get('*', (req, res) => {
   res.redirect(`https://${req.headers.host}${req.url}`);
-}).listen(80);
-https.createServer(options, app).listen(443);
+}).listen(4001);
+https.createServer(options, app).listen(4002);

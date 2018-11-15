@@ -37,7 +37,7 @@
     "webpack-dev-server": "^3.1.10"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
     "build": "npm run clean && npm run webpack_prod && npm run migrate",
     "webpack_dev": "webpack",
     "webpack_prod": "NODE_ENV=production webpack",
@@ -47,7 +47,7 @@
     "dev": "./node_modules/.bin/webpack-dev-server --host 0.0.0.0",
     "serve": "sudo node server.js",
     "clean": "rm -rf ./dist",
-    "migrate": "sudo cp ./src/resources/manifest.json ./dist/assets/manifest.json && sudo cp ./src/resources/speartip.ico ./dist/assets/media/speartip.ico"
+    "migrate": "cp ./src/resources/manifest.json ./dist/assets/manifest.json && cp ./src/resources/speartip.ico ./dist/assets/media/speartip.ico"
   },
   "devDependencies": {
     "compression-webpack-plugin": "^2.0.0",
