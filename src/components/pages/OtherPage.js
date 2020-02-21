@@ -2,6 +2,6 @@ import React from 'react';
 
 export default () => (
   <div>
-        Non-admin Page
+    Non-admin Page
   </div>
 );
