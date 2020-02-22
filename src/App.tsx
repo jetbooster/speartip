@@ -6,7 +6,6 @@ const userContext = React.createContext(null)
 
 function App() {
   return (
-    <userContext.Provider 
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

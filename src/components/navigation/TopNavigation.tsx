@@ -1,4 +1,6 @@
-import { AppBar, Toolbar, Button, IconButton, Typography, withStyles } from '@material-ui/core';
+import {
+  AppBar, Toolbar, Button, IconButton, Typography, withStyles,
+} from '@material-ui/core';
 import { MediaQuery } from 'react-responsive';
 import MenuIcon from '@material-ui/icons/Menu';
 import PropTypes from 'prop-types';

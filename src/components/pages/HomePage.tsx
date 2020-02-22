@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
-import { Typography, withStyles, Paper, GridList, GridListTile } from '@material-ui/core';
+import {
+  Typography, withStyles, Paper, GridList, GridListTile,
+} from '@material-ui/core';
 import * as actions from '../../actions/auth';
 
 import content from '../lists/gridlistData';
